@@ -44,7 +44,7 @@ Open test_case_4. Make a key request. The second call will return return one of 
 
 
 ## Kata_5
-> Open test_case_5. Make a key request. 
+Open test_case_5. Make a key request. 
 
 The call should return an array of objects, different in length each time. Each object should contain UUID, name and location values. 
 
