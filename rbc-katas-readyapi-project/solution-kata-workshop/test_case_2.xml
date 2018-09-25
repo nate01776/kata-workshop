@@ -16,6 +16,15 @@
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="6ee3934e-5ffc-4e78-b7b6-cc78f1ef0616" name="Check for existence of [token]">
+          <con:configuration>
+            <path>$['token']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -49,6 +58,15 @@
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Match" id="c48e1150-d2bd-4039-825a-c5ab09ebdeba" name="Match content of [message]">
+          <con:configuration>
+            <path>$['message']</path>
+            <content>Success</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>

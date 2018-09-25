@@ -16,6 +16,15 @@
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Match" id="c7942b8a-c086-46cf-b228-0324c7d52213" name="Match content of [status]">
+          <con:configuration>
+            <path>$['status']</path>
+            <content>200</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -39,4 +48,5 @@
   </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:tagId>83f97608-01cf-4442-b0d4-7ec459d50414</con:tagId>
 </con:testCase>

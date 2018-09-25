@@ -20,6 +20,12 @@
       <con:params/>
       <con:element xmlns:ns="http://localhost/kata/1">ns:Response</con:element>
     </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element xmlns:ns="http://localhost/kata/1">ns:Fault</con:element>
+    </con:representation>
     <con:request name="Request 1" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
       <con:settings>
         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>

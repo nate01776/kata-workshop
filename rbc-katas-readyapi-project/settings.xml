@@ -50,5 +50,10 @@
     <con:jmsConnectionContainer/>
   </con:environment>
   <con:authRepository/>
-  <con:tags/>
+  <con:tags>
+    <con:tag>
+      <con:id>83f97608-01cf-4442-b0d4-7ec459d50414</con:id>
+      <con:name>odd</con:name>
+    </con:tag>
+  </con:tags>
 </con:soapui-project>

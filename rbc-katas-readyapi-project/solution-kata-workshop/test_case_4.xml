@@ -5,25 +5,38 @@
     <con:setting id="a1ef02f4-f737-45b7-a42f-fc6cc0d2b485fileName">test_case_4</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="restrequest" name="get_/key" id="76b6b138-8b0d-4ea3-9a2d-f93bc6e4a5df">
+  <con:testStep type="restrequest" name="get_/key" id="236d604a-2211-44aa-8cc6-4a2b0e2fbd62">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="get_/key" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
         </con:settings>
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
-        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="d579c212-638e-423d-9a54-baf0ac2dc486" name="Check for existence of [token]">
+          <con:configuration>
+            <path>$['token']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="kata_number" value="key"/>
+          <con:entry key="token" value="true"/>
         </con:parameters>
         <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
           <con:entry>id</con:entry>
         </con:parameterOrder>
         <con:environmentSpec>
@@ -34,25 +47,39 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="get_/4" id="3f52c347-5b3d-4232-b847-692b075855a7">
+  <con:testStep type="restrequest" name="get_/4" id="f5e7520a-29b9-4c1b-978d-bb2c1214c09f">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="get_/4" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/4" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
         </con:settings>
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
-        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="GroovyScriptAssertion" id="d9e5dfe8-5bd3-4d71-94e2-6d2ab205e7fd" name="Script Assertion">
+          <con:configuration>
+            <scriptText>def response_status = context.expand( '${get_/4#HarResponse#$[\'status\']}' )
+
+if (response_status != "200") {
+	def testStepObject = context.getTestCase().getTestSteps()
+	
+}</scriptText>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="kata_number" value="4"/>
+          <con:entry key="id" value="${get_/key#Response#$['token']}"/>
         </con:parameters>
         <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
           <con:entry>id</con:entry>
         </con:parameterOrder>
         <con:environmentSpec>
@@ -212,6 +239,16 @@
   <con:reportParameters/>
   <con:breakPoints>
     <con:testStepId>c9c25334-edeb-4b5b-99f4-e97d1c6e6da9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>236d604a-2211-44aa-8cc6-4a2b0e2fbd62</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f5e7520a-29b9-4c1b-978d-bb2c1214c09f</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
